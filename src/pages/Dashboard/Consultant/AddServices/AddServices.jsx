@@ -19,6 +19,7 @@ const AddServices = () => {
     data.profession = consultant.profession;
     data.email = consultant.email;
     data.consultantId = consultant._id;
+    data.consultantPhone = consultant.phone;
 
     fetch("http://localhost:5000/consultant/addservice", {
       method: "POST",

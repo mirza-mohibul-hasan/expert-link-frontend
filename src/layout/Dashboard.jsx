@@ -36,12 +36,12 @@ const Dashboard = () => {
             </Link>
             <Link to="/dashboard/favouriteservices">
               <button className="btn bg-[#e2136e] dark:bg-slate-900 dark:hover:bg-gray-500 w-full text-white hover:bg-gray-500">
-                <SiGoogleclassroom></SiGoogleclassroom> Favourite services
+                <SiGoogleclassroom></SiGoogleclassroom> Selected services
               </button>
             </Link>
             <Link to="/dashboard/takenservices">
               <button className="btn bg-[#e2136e] dark:bg-slate-900 dark:hover:bg-gray-500 w-full text-white hover:bg-gray-500">
-                <FaRegCalendarCheck></FaRegCalendarCheck> Previously Taken
+                <FaRegCalendarCheck></FaRegCalendarCheck> Paid Services
               </button>
             </Link>
             <Link to="/dashboard/paymenthistory">

@@ -12,7 +12,7 @@ const CheckoutForm = ({ paymentservice, price }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  // console.log(user)
+  console.log(paymentservice)
   useEffect(() => {
     // console.log(price);
     if (price > 0) {
@@ -72,7 +72,7 @@ const CheckoutForm = ({ paymentservice, price }) => {
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
-        instructorName: paymentservice.name,
+        consultantName: paymentservice.name,
         consultantEmail: paymentservice.consultantEmail,
       };
       axios.post("http://localhost:5000/payments", payment).then((res) => {
@@ -118,12 +118,12 @@ const CheckoutForm = ({ paymentservice, price }) => {
     <div className="">
       <div>
         <div className="card w-2/3 mx-auto bg-base-100 dark:bg-slate-700 shadow-xl flex-row border-2 p-1 border-[#e2136e] rounded">
-          <img className="w-96 h-52 rounded" alt="Shoes" />
+          <img className="w-96 h-52 rounded" alt="service" />
           <div className="card-body dark:text-white text-[14px]">
             <p>Consultant: {paymentservice.name}</p>
             <p>Contact: </p>
             <div className="card-actions justify-end items-center">
-              <p className="text-xl font-semibold">${price}</p>
+              <p className="text-xl font-semibold">TK {price}</p>
             </div>
           </div>
         </div>

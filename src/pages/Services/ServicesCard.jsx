@@ -10,34 +10,37 @@ const ServicesCard = ({ service }) => {
   const handleBookNow = (service) => {
     console.log(service);
     const bookService = {
-      name: service.consultantName,
-      profession: service.profession,
+      serviceName: service.serviceTitle,
+      consultantName: service.consultantName,
+      consultantProfession: service.profession,
       consultantMail: service.email,
       title: service.serviceTitle,
       rate: service.rate,
       image: service.servicePhoto,
-      email: user?.email
-    }
-    fetch('http://localhost:5000/bookServices', {
-       method: 'POST',
-       headers: {
-           'content-type': 'application/json'
-       },
-       body: JSON.stringify(bookService)
+      customerEmail: user?.email,
+      customerName: user?.displayName || "Anonymus",
+      consultantContact: service.consultantPhone
+    };
+    fetch("http://localhost:5000/bookServices", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(bookService),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.insertedId) {
           Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Successfully Booked The Service',
+            position: "center",
+            icon: "success",
+            title: "Successfully Booked The Service",
             showConfirmButton: false,
-            timer: 700
-        });
-      }
-    })
-  }
+            timer: 700,
+          });
+        }
+      });
+  };
 
   const { serviceTitle, consultantName, servicePhoto, profession, rate } =
     service;
@@ -54,11 +57,12 @@ const ServicesCard = ({ service }) => {
         <div className="flex justify-between">
           <h2 className="card-title">{serviceTitle}</h2>
         </div>
-        <p>Instructor: {consultantName}</p>
+        <p>Consultant: {consultantName}</p>
         <p>Profession: {profession}</p>
         <div className="card-actions justify-end items-center">
           <p className="text-xl font-semibold">TK{rate}/hr</p>
-          <button onClick={()=>handleBookNow(service)}
+          <button
+            onClick={() => handleBookNow(service)}
             disabled={isAdmin || isConsultant}
             className="btn btn-primary bg-[#e2136e] border-none btn-sm dark:text-gray-950 dark:bg-white text-white"
           >

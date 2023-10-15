@@ -257,11 +257,9 @@ const SignUp = () => {
                 >
                   <option value="ethical-hacker">Ethical Hacker</option>
                   <option value="video-editor">Video Editor</option>
-                  <option value="script-writter">Tech Script Writter</option>
+                  <option value="software-engineer">Software Engineer</option>
                   <option value="iot-expert">IOT Expert</option>
                   <option value="os-expert">Operating System Expert</option>
-                  <option value="startup-mentor">Start-up Mentor</option>
-                  <option value="software-engineer">Software Engineers</option>
                 </select>
               </div>
             )}
