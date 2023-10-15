@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../provider/AuthProvider";
 
 const MyAppointment = () => {
   const { user } = useContext(AuthContext);
@@ -31,25 +31,28 @@ const MyAppointment = () => {
               <tr key={user._id}>
                 {/* {console.log(user)} */}
                 <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.consultantEmail}</td>
-                <td>{user.profession}</td>
+                <td>{user.consultantName}</td>
+                <td>{user.consultantMail}</td>
+                <td>{user.consultantProfession}</td>
                 <td>{user.rate}</td>
                 {user?.status ? (
                   <td>{user.status}</td>
                 ) : (
                   <td>Waiting For Response</td>
                 )}
-                {user?.status == "Ok, You will have appointment with me." ? (
-                  <Link to={`/dashboard/payment/${user._id}`}><button className="btn bg-green-500 btn-ghost btn-xs">Pay</button></Link>
-                ) : (
-                  <button className="btn btn-ghost px-2 btn-xs" disabled>
-                    Not available
-                  </button>
-                )}
-                {/* <td>
-                                    <button onClick={()=> handleDelete(user._id)} className="btn btn-ghost p-5">Delete</button>
-                                </td> */}
+                <td>
+                  {user?.status == "Ok, You will have appointment with me." ? (
+                    <Link to={`/dashboard/payment/${user._id}`}>
+                      <button className="btn bg-green-500 btn-ghost btn-xs">
+                        Pay
+                      </button>
+                    </Link>
+                  ) : (
+                    <button className="btn btn-ghost px-2 btn-xs" disabled>
+                      Not available
+                    </button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

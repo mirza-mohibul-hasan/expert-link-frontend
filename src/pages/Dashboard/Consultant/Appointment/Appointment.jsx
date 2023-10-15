@@ -5,7 +5,6 @@ import { AuthContext } from '../../../../provider/AuthProvider';
 
 const Appointment = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
     const [appointments, setAppointments] = useState([]);
       
     useEffect(() => {
@@ -16,6 +15,7 @@ const Appointment = () => {
             setAppointments(data);
       });
       }, [user])
+      console.log(appointments)
     
     const handleAcceptRequest = (user) => {
         fetch(`http://localhost:5000/makeRequestAccept/${user._id}`, {
@@ -62,10 +62,8 @@ const Appointment = () => {
                     <thead>
                     <tr>
                         <th className="text-2xl">#</th>
-                        <th className="text-2xl">Name</th>
-                          <th className="text-2xl">User Email</th>
-                          <th className="text-2xl">Consultant Email</th>
-                            <th className="text-2xl">Profession</th>
+                        <th className="text-2xl">Client Name</th>
+                          <th className="text-2xl">Client Email</th>
                             <th className="text-2xl">Message</th>
                             <th className="text-2xl">Time</th>
                             <th className="text-2xl">Rate</th>
@@ -75,22 +73,20 @@ const Appointment = () => {
                     </thead>
                     <tbody>
                         {
-                            appointments.map((user,index) => <tr key={user._id}>
+                            appointments.map((appointment,index) => <tr key={appointment._id}>
                                 <th>{index+1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.userEmail}</td>
-                                <td>{user.consultantEmail}</td>
-                                <td>{user.profession}</td>
-                                <td>{user.message}</td>
-                                <td>{user.appoinmentTime}</td>
-                                <td>{user.rate}</td>
+                                <td>{appointment.customerName}</td>
+                                <td>{appointment.customerEmail}</td>
+                                <td>{appointment.message}</td>
+                                <td>{appointment.appoinmentTime}</td>
+                                <td>{appointment.rate}</td>
                                 <td>
                                     {
-                                  <button onClick={() => handleAcceptRequest(user)} className="btn btn-ghost p-5" disabled={user?.status}>Accept</button>
+                                  <button onClick={() => handleAcceptRequest(appointment)} className="btn btn-ghost p-5" disabled={appointment?.status}>Accept</button>
                                     }
                                 </td>
                                 <td>
-                                    <button onClick={()=> handleDeleteRequest(user)} className="btn btn-ghost p-5" disabled={user?.status}>Cancel</button>
+                                    <button onClick={()=> handleDeleteRequest(appointment)} className="btn btn-ghost p-5" disabled={appointment?.status}>Cancel</button>
                                 </td>
                             </tr>)
                         }

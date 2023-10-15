@@ -6,7 +6,7 @@ const ConsultantsCard = ({ consultant }) => {
     <div className="card w-72 mx-auto bg-base-100 shadow-md dark:bg-slate-700">
       <img
         src={photo}
-        alt="Instructor"
+        alt="Consultant"
         className="w-full h-72 p-2 rounded-xl"
       />
       <div className="card-body items-center text-center -mt-3 dark:text-white">

@@ -18,6 +18,8 @@ import FavouriteService from "../pages/Dashboard/Customer/FavouriteService/Favou
 import Appointment from "../pages/Dashboard/Consultant/Appointment/Appointment";
 import MyAppointment from "../pages/Dashboard/Customer/MyAppointment/MyAppointment";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PreviouslyTaken from "../pages/Dashboard/Customer/PreviouslyTaken/PreviouslyTaken";
+import PaymentHstory from "../pages/Dashboard/Customer/PaymentHistory/PaymentHstory";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -96,6 +98,14 @@ const router = createBrowserRouter([
                 path: 'payment/:id',
                 element: <Payment></Payment>,
                 loader: ({params})=>fetch(`http://localhost:5000/payment/${params.id}`)
+            },
+            {
+                path: "takenservices",
+                element:<PreviouslyTaken></PreviouslyTaken>
+            },
+            {
+                path: "paymenthistory",
+                element:<PaymentHstory></PaymentHstory>
             }
         ]
     }

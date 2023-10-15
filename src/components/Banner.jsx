@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
     return (
         <div
             className="hero min-h-screen"
             style={{
                 backgroundImage:
-                    "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+                    "url(https://qph.cf2.quoracdn.net/main-qimg-ff0f7c1f117cec9b0ad4f7c958d96347-pjlq)",
             }}
         >
             <div className="hero-overlay bg-opacity-60"></div>
@@ -20,7 +22,7 @@ const Banner = () => {
                         more. Get tailored consultations, collaborate, and
                         enhance your tech projects. Join ExpertLink today!
                     </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <Link to="consultants" className="btn btn-primary bg-[#e2136e]">Hire Now</Link>
                 </div>
             </div>
         </div>
