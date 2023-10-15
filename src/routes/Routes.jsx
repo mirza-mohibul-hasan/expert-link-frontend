@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main";
 import SignUp from "../pages/Authentication/SignUp/SignUp";
 import Login from "../pages/Authentication/Login/Login";
 import Error from "../pages/Error/Error";
@@ -20,6 +19,7 @@ import MyAppointment from "../pages/Dashboard/Customer/MyAppointment/MyAppointme
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PreviouslyTaken from "../pages/Dashboard/Customer/PreviouslyTaken/PreviouslyTaken";
 import PaymentHstory from "../pages/Dashboard/Customer/PaymentHistory/PaymentHstory";
+import Main from "../layout/MAin";
 const router = createBrowserRouter([
     {
         path: "/",
